@@ -69,7 +69,7 @@ li {
 }
 
 .covered {
-  background: url("/dist/images/spades.png") center/cover !important;
+  background: url("../images/spades.png") center/cover !important;
   transform: rotateY(180deg);
   transition: transform 1.1s;
 }
