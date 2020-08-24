@@ -29,7 +29,7 @@ const playAgain = document.querySelector("button");
 const counterDisplays = document.querySelectorAll(".counter");
 const grid = document.querySelector("ul");
 const winMessage = document.querySelector(".win-alert");
-let count = -1;
+let count = 0;
 
 // reset after win----------------
 playAgain.addEventListener("click", () => reset());
@@ -51,16 +51,17 @@ cards.forEach((card) => {
   card.addEventListener("click", function () {
     if (
       this.dataset.matched === "true" ||
-      !this.classList.contains("covered")
+      !this.classList.contains("covered") ||
+      chosenCards.length > 1
     ) {
       return;
     } else {
-      if (chosenCards.length < 2) {
+      if (chosenCards.length < 1) {
+        showCard(this);
+      } else if ((chosenCards.length = 1)) {
         updateCount();
         showCard(this);
-      } else {
-        checkMatch();
-        showCard(this);
+        setTimeout(checkMatch, 600);
       }
     }
     checkWin();
@@ -122,6 +123,10 @@ function reset() {
   cards.forEach((card) => {
     card.classList.add("covered");
     card.dataset.matched = "false";
+  });
+  count = 0;
+  counterDisplays.forEach((counterDisplay) => {
+    counterDisplay.textContent = `${count}`;
   });
   generateGame();
 }
