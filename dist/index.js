@@ -1,42 +1,22 @@
 const cards = Array.from(document.querySelectorAll(".card"));
 const imagesArr = [
-  "url(./images/img2.png) center/cover",
-  "url(./images/img3.png) center/cover",
-  "url(./images/img1.png) center/cover",
-  "url(./images/img4.png) center/cover",
-  "url(./images/img5.png) center/cover",
-  "url(./images/img6.png) center/cover",
-  "url(./images/img7.png) center/cover",
-  "url(./images/img8.png) center/cover",
-  "url(./images/img9.png) center/cover",
-  "url(./images/img10.png) center/cover",
-  "url(./images/img11.png) center/cover",
-  "url(./images/img12.png) center/cover",
-  "url(./images/img1.png) center/cover",
-  "url(./images/img2.png) center/cover",
-  "url(./images/img3.png) center/cover",
-  "url(./images/img4.png) center/cover",
-  "url(./images/img5.png) center/cover",
-  "url(./images/img6.png) center/cover",
-  "url(./images/img7.png) center/cover",
-  "url(./images/img8.png) center/cover",
-  "url(./images/img9.png) center/cover",
-  "url(./images/img10.png) center/cover",
-  "url(./images/img11.png) center/cover",
-  "url(./images/img12.png) center/cover",
+  "./images/img2.png",
+  "./images/img3.png",
+  "./images/img1.png",
+  "./images/img4.png",
+  "./images/img5.png",
+  "./images/img6.png",
+  "./images/img7.png",
+  "./images/img8.png",
+  "./images/img9.png",
+  "./images/img10.png",
+  "./images/img11.png",
+  "./images/img12.png",
 ];
 
-fetch("./images/img1.png");
-fetch("./images/img2.png");
-fetch("./images/img4.png");
-fetch("./images/img5.png");
-fetch("./images/img6.png");
-fetch("./images/img7.png");
-fetch("./images/img8.png");
-fetch("./images/img9.png");
-fetch("./images/img10.png");
-fetch("./images/img11.png");
-fetch("./images/img12.png");
+imagesArr.forEach((x) => {
+  fetch(x);
+});
 
 const playAgain = document.querySelector("button");
 const counterDisplays = document.querySelectorAll(".counter");
@@ -51,9 +31,10 @@ playAgain.addEventListener("click", () => reset());
 generateGame();
 
 function generateGame() {
-  shuffle(imagesArr);
-  for (let i = 0; i < 24; i++) {
-    cards[i].style.background = imagesArr[i];
+  let images = imagesArr.concat([...imagesArr]);
+  shuffle(images);
+  for (let i = 0; i < images.length; i++) {
+    cards[i].style.background = `url(${images[i]}) center/cover`;
   }
 }
 
