@@ -25,6 +25,19 @@ const imagesArr = [
   "url(./images/img11.png) center/cover",
   "url(./images/img12.png) center/cover",
 ];
+
+fetch("./images/img1.png");
+fetch("./images/img2.png");
+fetch("./images/img4.png");
+fetch("./images/img5.png");
+fetch("./images/img6.png");
+fetch("./images/img7.png");
+fetch("./images/img8.png");
+fetch("./images/img9.png");
+fetch("./images/img10.png");
+fetch("./images/img11.png");
+fetch("./images/img12.png");
+
 const playAgain = document.querySelector("button");
 const counterDisplays = document.querySelectorAll(".counter");
 const grid = document.querySelector("ul");
