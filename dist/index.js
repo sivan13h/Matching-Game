@@ -14,9 +14,11 @@ const imagesArr = [
   "./images/img12.png",
 ];
 
-imagesArr.forEach((x) => {
-  fetch(x);
-});
+window.onload = function () {
+  imagesArr.forEach((x) => {
+    fetch(x);
+  });
+};
 
 const playAgain = document.querySelector("button");
 const counterDisplays = document.querySelectorAll(".counter");
